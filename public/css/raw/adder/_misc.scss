@@ -1,0 +1,267 @@
+// Helper Classes
+.right{float:right;}
+.left{float:left;}
+// Basic Tabs, feel free to edit THIS part
+ul.tabs{
+	display:block;
+	list-style: none;
+	list-style-type: none;
+	margin:0px;
+	padding:0px;
+	border-bottom:1px solid #2f3238;
+	margin-bottom: 10px;
+	&:after{@include clearfix;}
+	li {
+		display:inline-block;
+		float:left;
+		a{
+			padding:10px 25px;
+			font-size:14px;
+			line-height:14px;
+			display:block;
+			&.active{
+				background:#2f3238;
+				color:#ffffff;
+				font-weight: bold;
+				@include border-radius(5px, 5px, 0px, 0px);
+				&:hover{text-decoration:none;}
+			}
+		}
+	}
+}
+// Tabs Content (Don't touch this unless you know what you are doing)
+ul.tabs-content{
+	display: block;
+	list-style: none;
+	list-style-type: none;
+	margin:0px;
+	padding:0px;
+	> li { display:none;
+		&.active {display: block;}
+	}
+}
+// Accordion
+ul.accordion {
+	display:block;
+	width:100%;
+	color:#121212;
+	list-style: none;
+	list-style-type: none;
+	margin:0;
+	padding:0px;
+	&:after{@include clearfix;}
+	li{
+		width: 100%;
+		margin-bottom:1px;
+		@include border-box;
+		&.selected{
+			@include border-radius-equal(5px);
+			color:#121212;
+			.accordion-title{
+				color:#fff;
+			}
+		}
+		.accordion-title{
+			cursor: pointer;
+			font-size: 14px;
+			line-height:14px;
+			color: #ffffff;
+			padding:10px;
+			background:#2f3238;
+			@include disable-highlight;
+			@include border-radius-equal(5px);
+		}
+		.accordion-content{
+			padding:10px;
+		}
+	}
+}
+// Toggles
+ul.toggles{
+	display:block;
+	list-style:none;
+	list-style-type: none;
+	padding:0px;
+	margin:0px;
+	li{
+		width: 100%;
+		margin-bottom:1px;
+		.toggle-title{
+			cursor: pointer;
+			font-size: 14px;
+			line-height:14px;
+			color: #ffffff;
+			padding:10px;
+			background:#2f3238;
+			@include disable-highlight;
+			@include border-radius-equal(5px);
+		}
+		.toggle-content{
+			padding:10px;
+		}
+	}
+}
+// Base style for input fields, the reason
+// why I didn't just make this basic style for all inputs is because
+// inputs and radios are also inputs. It could get messy!
+input[type="text"]{
+	@include border-radius-equal(3px);
+	border:1px solid #cecece;
+	width:100%;
+	padding:8px;
+	outline:none;
+	@include border-box;
+	-webkit-box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .1);
+	box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .1);
+	margin:10px 0px;
+	// Blue outline on focus
+	&:focus{
+		border:1px solid #4d8dff;
+		-webkit-box-shadow: 0px 0px 3px .5px rgba(77, 141, 255, .5), inset 0px 1px 1px 0px rgba(0, 0, 0, .1);
+		box-shadow: 0px 0px 3px .5px rgba(77, 141, 255, .5), inset 0px 1px 1px 0px rgba(0, 0, 0, .1);
+
+	}
+}
+// All other inputs that will copy basic input field style
+// HTML5 Search Field
+input[type="search"]{@extend input[type="text"];}
+// Password Field
+input[type="password"]{@extend input[type="text"];}
+// URL Field
+input[type="url"]{@extend input[type="text"]}
+// Email
+input[type="email"]{@extend input[type="text"];}
+// Text Area
+textarea{
+	@extend input[type="text"];
+	resize:vertical;
+}
+// Options Drop Down
+select{@extend input[type="text"];}
+// Submit Button
+input[type="submit"]{@extend .btn;border:none;outline:none;margin:10px 0px;}
+
+// Label Basic Style
+label{font-weight:bold;}
+// If label is assigned to a field, give visual pointer
+label[for]{cursor: pointer;}
+
+// Check boxes
+input[type="checkbox"]{
+	border:1px solid #b1b1b1;
+	@include border-radius-equal(2px);
+}
+
+// Progress Bar
+.progressbar{
+	height:25px;
+	background:#f1f1f1;
+	@include border-radius-equal;
+	@include inset-box-shadow(0px, 1px, 1px, 0px, 0, 0, 0, .2);
+	.progress-done{
+		height:25px;
+		@include gradient-top-down(#8aca3f, #678e3b);
+		display:block;
+		-webkit-border-radius: 5px 0px 0px 5px;
+		border-radius: 5px 0px 0px 5px;
+	}
+	&.small{
+		height:10px;
+		.progress-done{height:10px;}
+	}
+}
+
+.table{
+	width: 100%;
+	border: 1px solid #e9e9e9;
+ 	border-collapse: separate;
+ 	*border-collapse: collapse;
+ 	margin-bottom:20px;
+ 	@include border-radius-equal(5px);
+ 	th{
+		padding: 8px;
+		line-height: 20px;
+		text-align: left;
+		vertical-align: top;
+ 	}
+ 	td{@extend th;border-top: 1px solid #dddddd;}
+}
+.info-box{
+	@include border-radius-equal;
+	background:#f9f9f9;
+	@include inset-box-shadow(0px, 1px, 2px, 0px, 0, 0, 0, .2);
+	padding:20px;
+}
+
+// Scroll to the top
+.scrollup{
+    background:rgba(47, 50, 56, 1);
+	width:45px;
+	height:45px;
+    line-height: 45px;
+	@include border-radius-equal(50em);
+    font-size:30px;
+	text-align:center;
+    position:fixed;
+    vertical-align: middle;
+    bottom:50px;
+    display:none;
+    right:100px;
+    color:#fff;
+}
+// Notify css
+.notify{
+	@include border-radius-equal(5px);
+	background:#2f3238;
+	border:1px solid #474b54;
+	padding:5px;
+	color:#ffffff;
+	font-size: 14px;
+	span.close{
+		display:block;
+		position: relative;
+		top:-2px;
+		float:right;
+		padding-right:5px;
+		a{
+			font-size:16px;
+			color:#ffffff;
+			opacity: .5;
+			&:hover{
+				opacity:1;
+			}
+		}
+	}
+}
+// Modules / Panels
+.module{
+	.title{
+		color:#fff;
+		background:#2f3238;
+		padding:10px;
+		@include border-radius(5px, 5px, 0px, 0px);
+		font-weight:bold;
+	}
+	.body{
+		border:1px solid #cfcfcf;
+		border-top:none;
+		background:#ffffff;
+		padding:10px;
+		@include border-radius(0px, 0px, 5px, 5px);
+	}
+	&.modal-pop-up{
+		width:600px;
+		margin:0 auto;
+		span.close{
+			display:block;
+			float:right;
+			font-size:20px;
+			position:relative;
+			top:-5px;
+			a{
+				color:#ffffff;
+				opacity: .5;
+				&:hover{opacity:1;}}
+		}
+	}
+}

@@ -1,0 +1,117 @@
+// A bunch of cross browser 
+// compatible mixins to make writing 
+// css mark up a lot easier. Beware, 
+// too much reliance on these css3 techniques 
+// will bloat the file. Create general "pseudo" classes for
+// effects you plan to repeat.
+// I've given a small explantion to what each mixin does 
+
+// Add a vertical gradient from the TOP > DOWN direction
+@mixin gradient-top-down($colortop: #ffffff, $colorbottom: #000000){
+	background: $colortop; 
+	background: -moz-linear-gradient(top,  $colortop 0%, $colorbottom 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$colortop), color-stop(100%,$colorbottom));
+	background: -webkit-linear-gradient(top,  $colortop 0%,$colorbottom 100%);
+	background: -o-linear-gradient(top,  $colortop 0%,$colorbottom 100%);
+	background: -ms-linear-gradient(top,  $colortop 0%,$colorbottom 100%);
+	background: linear-gradient(to bottom,  $colortop 0%,$colorbottom 100%);
+}
+// Add a horizontal gradient from the LEFT > RIGHT direction
+@mixin gradient-right-left($colorleft: #ffffff, $colorright: #000000){
+	background: $colorleft;
+	background: -moz-linear-gradient(left,  $colorleft 0%, $colorright 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,$colorleft), color-stop(100%,$colorright)); 
+	background: -webkit-linear-gradient(left,  $colorleft 0%,$colorright 100%);
+	background: -o-linear-gradient(left,  $colorleft 0%,$colorright 100%);
+	background: -ms-linear-gradient(left,  $colorleft 0%,$colorright 100%);
+	background: linear-gradient(to right,  $colorleft 0%,$colorright 100%);
+}
+// Add a diagonal gradient
+@mixin gradient-diagonal($color-top-left: #ffffff, $color-bottom-right: #000000){
+	background: $color-top-left;
+	background: -moz-linear-gradient(-45deg,  $color-top-left 0%, $color-bottom-right 100%);
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,$color-top-left), color-stop(100%,$color-bottom-right));
+	background: -webkit-linear-gradient(-45deg,  $color-top-left 0%,$color-bottom-right 100%);
+	background: -o-linear-gradient(-45deg,  $color-top-left 0%,$color-bottom-right 100%);
+	background: -ms-linear-gradient(-45deg,  $color-top-left 0%,$color-bottom-right 100%);
+	background: linear-gradient(135deg,  $color-top-left 0%,$color-bottom-right 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-top-left', endColorstr='$color-bottom-right',GradientType=1 );
+
+}
+@mixin gradient-diagonal-with-img($img-url: img-url, $color-top-left: #ffffff, $color-bottom-right: #000000){
+	background: $color-top-left;
+	background-image: url($img-url); 
+	background: url($img-url),	-moz-linear-gradient(-45deg,  $color-top-left 0%, $color-bottom-right 100%);
+	background: url($img-url),	-webkit-gradient(linear, left top, right bottom, color-stop(0%,$color-top-left), color-stop(100%,$color-bottom-right));
+	background: url($img-url),	-webkit-linear-gradient(-45deg,  $color-top-left 0%,$color-bottom-right 100%);
+	background: url($img-url),	-o-linear-gradient(-45deg,  $color-top-left 0%,$color-bottom-right 100%);
+	background: url($img-url),	-ms-linear-gradient(-45deg,  $color-top-left 0%,$color-bottom-right 100%);
+	background: url($img-url),	linear-gradient(135deg,  $color-top-left 0%,$color-bottom-right 100%);
+	background-position: center top;
+}
+// Border Radius with same corner radius
+@mixin border-radius-equal($radius: 5px){
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+// Border Radius 
+@mixin border-radius($rtr: 5px, $rtl: 5px, $rbr: 5px, $rbl: 5px){
+	-webkit-border-radius: $rtr $rtl $rbr $rbl;
+	-moz-border-radius: $rtr $rtl $rbr $rbl;
+	border-radius: $rtr $rtl $rbr $rbl;
+}
+// General All Purpose Clearfix
+@mixin clearfix{
+	content:"";
+	display: block;
+	width:100%;
+	height:0px;
+	clear:both;
+	visibility: hidden;
+}
+// General NON RGBA Text Shadow
+@mixin text-shadow($hlength: 0px, $vlength: 0px, $blur: 0px, $tscol: #000000){
+	text-shadow: $hlength $vlength $blur $tscol;
+	filter: dropshadow(color=$tscol, offx=0, offy=0);
+}
+// Sometimes you just don't shit to be selected
+@mixin disable-highlight{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+// Inset drop shadow
+@mixin inset-box-shadow($hl: 0px, $vl: 0px, $blur: 0px, $spread: 0px, $r: 0, $g: 0, $b: 0, $opacity: 1){
+	-webkit-box-shadow: inset $hl $vl $blur $spread rgba($r, $g, $b, $opacity);
+	box-shadow: inset $hl $vl $blur $spread rgba($r, $g, $b, $opacity);
+}
+// A fix for when adding padding to properties that are set at 100% width
+@mixin border-box{
+	-moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+// CSS3 Basic Animations Template
+@mixin animation($times: .5s, $function: ease){
+	-webkit-transition: all $times $function;
+	-moz-transition: all $times $function;
+	-ms-transition: all $times $function;
+	-o-transition: all $times $function;
+	transition: all $times $function;
+}
+// Box Sizing
+@mixin box-sizing{
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+@mixin list-reset{
+	list-style:none;
+	list-style-type:none;
+	padding:0px;
+	margin:0px;
+}

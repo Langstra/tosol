@@ -1,0 +1,37 @@
+//	For large projects, clearner and more DRY approach.
+//	use this file for storing all the global variables. 
+
+
+// Typography
+
+$global-font-family: "Source Sans Pro", Arial, sans-serif; // Global Font Family
+$global-font-size: 14px; // Global Font Size
+$global-line-height: 1.487;	// Global Line Height
+$global-font-color:#111; // Global Text Colour
+
+$header-font-family: "Lato", Arial, san-serif; // Header Font Family
+$header-font-color: #111;
+$paragraph-font-color: #111;
+$paragraph-bottom-pad: 10px; // Bottom padding for Paragraph tag
+// Site Colours
+$global-site-background-colour:#375068; // Body Background Colour
+// Site Width
+$site-container-max-width:1000px; // Maximum Container Width
+$site-container-width:98%; // Normal width for responsive site (fix to value of max-width to disable responsive)
+$site-container-padding: 0px; // Right & Left Padding for Site Container
+
+// Link Colour
+$global-link-colour:#cc901d; // Link Colour
+$global-link-hover:#ecb03d; // Link Colour Hover
+
+// Screen Resolution for Smartphones => Portrait View
+$sr-smartphone-p: "only screen and (max-width : 320px)";
+// Screen Resolution for Smartphones => Landscape View
+$sr-smartphone-l: "only screen and (max-width : 480px)";
+// Screen Resolution for Tablets => Portrait View
+$sr-tablet-p: "only screen and (max-width : 768px)";
+// Screen Resolution for Tablets => Landscape View
+$sr-tablet-l: "only screen and (max-width : 1024px)";
+
+// Adjustable Grid Padding
+$grid-padding:10px;
