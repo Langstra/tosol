@@ -12,7 +12,7 @@
     <!-- Page Title -->
     <title>The Oxford School of Language - Dashboard</title>
     <!-- Style Sheets -->
-    <link href="<?php echo URL; ?>public/css/adder.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo CSS_PATH; ?>adder.css" rel="stylesheet" type="text/css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

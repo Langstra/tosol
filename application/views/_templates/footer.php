@@ -13,8 +13,8 @@
     </div>
 </footer>
 <!-- Javascript -->
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/plugins.min.js" type="text/javascript"></script>
-<script src="js/custom.js" type="text/javascript"></script>
+<script src="<?php echo JS_PATH; ?>jquery.min.js" type="text/javascript"></script>
+<script src="<?php echo JS_PATH; ?>plugins.min.js" type="text/javascript"></script>
+<script src="<?php echo JS_PATH; ?>custom.js" type="text/javascript"></script>
 </body>
 </html>

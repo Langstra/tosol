@@ -1,8 +1,6 @@
 <div class="course-title">
     <div class="site-width">
-        <a href="#" id="logo"><img src="img/_assets/logo_b.png" alt="The Oxford School of Language"></a>
-        <span>The Oxford School of Language presents</span>
-        <h2>Beginners Spanish Course</h2>
+        <a href="#" id="logo"><img src="<?php echo IMG_PATH; ?>_assets/logo_b.png" alt="The Oxford School of Language"></a>
         <span>4/15 Lessons Complete</span>
     </div>
 </div>
@@ -29,7 +27,7 @@
                     <li><!-- Level 14 --></li>
                     <li><!-- Level 15 --></li>
                 </ul>
-                <div class="current-language"><img src="img/_web/country/spain.png" alt=""></div>
+                <div class="current-language"><img src="<?php echo IMG_PATH; ?>_web/country/spain.png" alt=""></div>
             </div>
             <!-- Dashboard Buttons -->
             <div id="dashboard-controls">
@@ -148,7 +146,7 @@
                     <h3>Your statistics</h3>
                     <div class="inner-body statistics-box">
                         <h4>Hello, iPhoenixi!</h4>
-                        <p class="what-learning-now">You are currently learning <span><img src="img/_web/country/spain.png" alt="Spanish"></span> Spanish.</p>
+                        <p class="what-learning-now">You are currently learning <span><img src="<?php echo IMG_PATH; ?>_web/country/spain.png" alt="Spanish"></span> Spanish.</p>
                         <p class="how-long-now">You've been on this course for <strong>6 weeks and 5 days</strong>.</p>
                         <p class="how-many-words">You've learned a total of <span>103</span> spanish words.</p>
                         <ul class="your-strengths">
