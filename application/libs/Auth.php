@@ -22,4 +22,13 @@ class Auth
             exit();
         }
     }
+
+    public static function isLoggedIn()
+    {
+        // initialize the session
+        Session::init();
+
+        return isset($_SESSION['user_logged_in']);
+
+    }
 }

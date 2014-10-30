@@ -23,6 +23,7 @@ class LoginModel
      * Users who login with Facebook etc. are handled with loginWithFacebook()
      * @param $username
      * @param $password
+     * @param $remember
      * @return bool success state
      */
     public function login($username, $password, $remember)
@@ -132,9 +133,6 @@ class LoginModel
             $_SESSION[SES_FEEDBACK_NEGATIVE][] = FEEDBACK_PASSWORD_WRONG;
             return false;
         }
-
-        // default return
-        return false;
     }
 
     /**

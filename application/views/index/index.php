@@ -1,9 +1,3 @@
-<div class="course-title">
-    <div class="site-width">
-        <a href="#" id="logo"><img src="<?php echo IMG_PATH; ?>_assets/logo_b.png" alt="The Oxford School of Language"></a>
-        <span>4/15 Lessons Complete</span>
-    </div>
-</div>
 <!-- Layout -->
 <div class="site-width">
     <div class="g-r" id="main-body">

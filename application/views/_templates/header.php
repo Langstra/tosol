@@ -33,6 +33,7 @@
             <li><a href="#">Community</a></li>
         </ul>
         <!-- User Info -->
+        <?php if(Auth::isLoggedIn()) { ?>
         <div id="user-info-nav">
             <ul>
                 <!-- Dropdown -->
@@ -66,5 +67,14 @@
                 <li><a href="#">iPhoenixi <i class="fa fa-angle-down"></i></a></li>
             </ul>
         </div>
+        <?php } else { ?>
+            Register
+        <?php } ?>
     </div>
 </nav>
+<div class="course-title">
+    <div class="site-width">
+        <a href="#" id="logo"><img src="<?php echo IMG_PATH; ?>_assets/logo_b.png" alt="The Oxford School of Language"></a>
+        <?php echo Auth::isLoggedIn() ? "<span>4/15 Lessons Complete</span>" : ""; ?>
+    </div>
+</div>
