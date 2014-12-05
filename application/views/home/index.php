@@ -1,11 +1,3 @@
-<div class="course-title">
-    <div class="site-width">
-        <a href="#" id="logo"><img src="img/_assets/logo_b.png" alt="The Oxford School of Language"></a>
-        <span>The Oxford School of Language presents</span>
-        <h2>Beginners Spanish Course</h2>
-        <span>4/15 Lessons Complete</span>
-    </div>
-</div>
 <!-- Layout -->
 <div class="site-width">
     <div class="g-r" id="main-body">
@@ -41,8 +33,8 @@
                 </ul>
             </div>
             <div class="module-area">
-                <!-- Lesson Listing -->
-                <div class="lesson-module">
+                        <!-- Lesson Listing -->
+                        <div class="lesson-module">
                     <!-- Lesson Box -->
                     <div class="module-box">
                         <!-- Module Title -->

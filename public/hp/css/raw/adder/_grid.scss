@@ -1,0 +1,73 @@
+//------------------------------------\\
+//	#Adder Grid System
+//------------------------------------\\
+
+// Site Width
+
+.site-width{
+	max-width:$site-container-max-width;
+	width:$site-container-width;
+	padding:0px $site-container-padding;
+	margin:0 auto;
+	position:relative;
+}
+
+$grid-row-name: 		"g-r";
+$grid-column-name: 		"col";
+$number-of-columns:		12;
+
+.#{$grid-row-name}{
+
+	&:after{@extend %clearfix;}
+
+	.#{$grid-column-name}{	float:left;	}
+
+	@for $i from 1 through $number-of-columns{
+		.#{$grid-column-name}-#{$i}{
+			@extend .#{$grid-column-name};
+			width:(100 / $number-of-columns) * $i * 1%;
+		}
+	}
+
+	@media #{$breakpoint-tablet}{
+		.#{$grid-column-name}{
+			width:50%;
+		}
+	}
+
+	@media #{$breakpoint-phone}{
+		.#{$grid-column-name}{
+			width:100%;
+		}
+	}
+
+}
+
+$grid-list-row-name:		"g-l";
+$grid-list-gutter:			2;
+$grid-list-start:			2;
+$grid-list-end:				12;
+
+//
+%#{grid-list-row-name}-base-style{
+	@extend %list-reset;
+	&:after{@extend %clearfix;}
+}
+//
+%#{grid-list-row-name}-base-list-style{
+	display:block;
+	float:left;
+	margin-right:$grid-list-gutter * 1%;
+	&:last-child{margin-right:0;}
+}
+@for $i from $grid-list-start through $grid-list-end{
+	.#{$grid-list-row-name}-#{$i}{
+		
+		@extend %#{grid-list-row-name}-base-style;
+		
+		li{
+			@extend %#{grid-list-row-name}-base-list-style;
+			width: (100  - ($grid-list-gutter * $i -$grid-list-gutter)) / $i * 1%
+		}
+	}
+}

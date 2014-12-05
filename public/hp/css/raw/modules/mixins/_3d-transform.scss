@@ -1,0 +1,62 @@
+//------------------------------------\\
+//	#3D Transforms
+//------------------------------------\\
+
+// Scale Only
+@mixin perspective($value){
+	-webkit-perspective:$value;
+	   -moz-perspective:$value;
+			perspective:$value;
+}
+
+// 
+@mixin perspective-origin($x-value: 50%, $y-value: 50%){
+	-webkit-perspective-origin: $x-value $y-value;
+	   -moz-perspective-origin: $x-value $y-value;
+			perspective-origin: $x-value $y-value;
+}
+
+//
+@mixin transform-3drotate($x-value, $y-value, $z-value, $angle){
+	-webkit-transform: rotate3d($x-value,$y-value,$y-value,$angle)
+	   -moz-transform: rotate3d($x-value,$y-value,$y-value,$angle)
+			transform: rotate3d($x-value,$y-value,$y-value,$angle)
+}
+
+//
+@mixin transform-3dtranslate($x-value, $y-value, $z-value){
+	-webkit-transform: translate3d($x-value,$y-value,$z-value);
+	   -moz-transform: translate3d($x-value,$y-value,$z-value);
+			transform: translate3d($x-value,$y-value,$z-value);
+}
+
+//
+@mixin transform-3dscale($x-value, $y-value, $z-value){
+	-webkit-transform: scale3d($x-value,$y-value,$z-value);
+	   -moz-transform: scale3d($x-value,$y-value,$z-value);
+			transform: scale3d($x-value,$y-value,$z-value);
+}
+
+//
+@mixin transform-origin($x-value: 50%, $y-value: 50%, $z-value: 0%){
+		-ms-transform-origin: $x-value $y-value $z-value;
+	-webkit-transform-origin: $x-value $y-value $z-value;
+	   -moz-transform-origin: $x-value $y-value $z-value;
+			transform-origin: $x-value $y-value $z-value;
+}
+
+//
+// "flat", "preserve-3d", "initial", "inherit"
+@mixin transform-style($type: flat){
+		-ms-transform-style: $type;
+	-webkit-transform-style: $type;
+			transform-style: $type;
+}
+
+//
+// "visible", "hidden", "initial", "inherit"
+@mixin backface-visibility($value: hidden){
+		-ms-backface-visibility: $value;
+	-webkit-backface-visibility: $value;
+			backface-visibility: $value;
+}

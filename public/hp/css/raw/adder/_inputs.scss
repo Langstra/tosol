@@ -1,0 +1,81 @@
+//------------------------------------\\
+//	#Input Fields
+//------------------------------------\\
+
+input[type="text"]{
+	@include border-radius-equal(3px);
+	border:1px solid #cecece;
+	width:100%;
+	padding:8px;
+	outline:none;
+	-webkit-box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .1);
+	box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .1);
+	margin:10px 0px;
+	// Blue outline on focus
+	&:focus{
+		border:1px solid #4d8dff;
+		-webkit-box-shadow: 0px 0px 3px .5px rgba(77, 141, 255, .5), inset 0px 1px 1px 0px rgba(0, 0, 0, .1);
+		box-shadow: 0px 0px 3px .5px rgba(77, 141, 255, .5), inset 0px 1px 1px 0px rgba(0, 0, 0, .1);
+
+	}
+}
+
+
+// HTML5 Search Field
+
+input[type="search"]{
+	@extend input[type="text"];
+}
+
+// Password Field
+
+input[type="password"]{
+	@extend input[type="text"];
+}
+
+// URL Field
+
+input[type="url"]{
+	@extend input[type="text"]
+}
+
+// Email
+
+input[type="email"]{
+	@extend input[type="text"];
+}
+
+// Text Area
+
+textarea{
+	@extend input[type="text"];
+	resize:vertical;
+}
+// Options Drop Down
+
+select{
+	@extend input[type="text"];
+}
+
+//------------------------------------\\
+//	#Buttons
+//------------------------------------\\
+
+input[type="submit"]{
+	@extend .btn;
+	border:none;
+	outline:none;
+	margin:10px 0px;
+}
+
+//------------------------------------\\
+//	#Labels
+//------------------------------------\\
+
+label{
+	font-weight:bold;
+}
+
+label[for]{
+	cursor: pointer;
+}

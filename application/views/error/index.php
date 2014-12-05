@@ -1,5 +1,12 @@
-<div class="content">
-    <h1 style="color: red;">
-        This page does not exist.
-    </h1>
+<!-- Layout -->
+<div class="site-width">
+    <div class="g-r" id="main-body">
+        <div class="col-8" id="main-content">
+            Error, this page was not found.
+        </div>
+        <!-- Side Bar -->
+        <div class="col-4" id="side-bar">
+
+        </div>
+    </div>
 </div>

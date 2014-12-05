@@ -1,0 +1,35 @@
+//------------------------------------\\
+//	#Gradients
+//------------------------------------\\
+
+// Add a vertical gradient from the TOP > DOWN direction
+@mixin gradient-top-down($colortop: #ffffff, $colorbottom: #000000){
+	background: $colortop; 
+	background: -moz-linear-gradient(top,  $colortop 0%, $colorbottom 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$colortop), color-stop(100%,$colorbottom));
+	background: -webkit-linear-gradient(top,  $colortop 0%,$colorbottom 100%);
+	background: -o-linear-gradient(top,  $colortop 0%,$colorbottom 100%);
+	background: -ms-linear-gradient(top,  $colortop 0%,$colorbottom 100%);
+	background: linear-gradient(to bottom,  $colortop 0%,$colorbottom 100%);
+}
+// Add a horizontal gradient from the LEFT > RIGHT direction
+@mixin gradient-right-left($colorleft: #ffffff, $colorright: #000000){
+	background: $colorleft;
+	background: -moz-linear-gradient(left,  $colorleft 0%, $colorright 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,$colorleft), color-stop(100%,$colorright)); 
+	background: -webkit-linear-gradient(left,  $colorleft 0%,$colorright 100%);
+	background: -o-linear-gradient(left,  $colorleft 0%,$colorright 100%);
+	background: -ms-linear-gradient(left,  $colorleft 0%,$colorright 100%);
+	background: linear-gradient(to right,  $colorleft 0%,$colorright 100%);
+}
+// Add a diagonal gradient
+@mixin gradient-diagonal($color-top-left: #ffffff, $color-bottom-right: #000000){
+	background: $color-top-left;
+	background: -moz-linear-gradient(-45deg,  $color-top-left 0%, $color-bottom-right 100%);
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,$color-top-left), color-stop(100%,$color-bottom-right));
+	background: -webkit-linear-gradient(-45deg,  $color-top-left 0%,$color-bottom-right 100%);
+	background: -o-linear-gradient(-45deg,  $color-top-left 0%,$color-bottom-right 100%);
+	background: -ms-linear-gradient(-45deg,  $color-top-left 0%,$color-bottom-right 100%);
+	background: linear-gradient(135deg,  $color-top-left 0%,$color-bottom-right 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-top-left', endColorstr='$color-bottom-right',GradientType=1 );
+}

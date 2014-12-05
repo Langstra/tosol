@@ -2,3 +2,6 @@ composer.phar
 .idea/
 application/config/config.php
 public/css/.sass-cache/*
+_installation
+tosol.mwb
+tosol.mwb.bak

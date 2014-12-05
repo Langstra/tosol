@@ -1,0 +1,108 @@
+//------------------------------------\\
+//	#Buttons
+//------------------------------------\\
+
+.btn{
+	// Default Button Colour
+	color:#fff;
+	display:inline-block;
+	padding:5px 10px;
+	@include border-radius-equal(3px);
+	border:1px solid #3d4a55;
+	outline:none;
+	font-size:14px;
+	line-height:14px;
+	background:$base-color;
+	@include gradient-top-down(#586772, #3d4e5b);
+	-webkit-box-shadow:inset 0 1px 0 0 rgba(255,255,255,.10), 0 1px 0 0 rgba(255,255,255,.10);
+	box-shadow:inset 0 1px 0 0 rgba(255,255,255,.10), 0 1px 0 0 rgba(255,255,255,.10);
+	@include text-shadow(-1px, -1px, 0, 0, 0, 0, .20);
+	// Hover Effects
+	&:hover{
+		text-decoration: none;
+		
+		color:#fff;
+		@include gradient-top-down(#808f9b, #566978);
+	}
+	&:active{
+		background:#566978;
+	}
+	// Active State
+	&.active{
+		text-decoration: none;
+		background:$base-color-light;
+	}
+	&.red{
+		@include gradient-top-down(#f48573, #f3715d);
+		&:hover{background:#f3715d;}
+	}
+	// Active state For the dropdown
+	&.dropdown-open{background:#474b54;}
+}
+
+.btn-j{
+	display:inline-block;
+	background:#7ab55c;
+	color:#fff;
+	padding:10px 25px;
+	font-size:14px;
+	font-weight:800;
+	@include border-radius-equal(50px);
+	&.o{
+		border:2px solid #fff;
+		background:none;
+	}
+	&.o-black{
+		border:2px solid #222;
+		background:none;
+		color:#222;
+	}
+	&.block{
+		display:block;
+		width:100%;
+		height:100%;
+		text-align:center;
+	}
+	&.p{
+		background:#2f2e3c;
+	}
+}
+
+//------------------------------------\\
+//	#Button Grouping
+//------------------------------------\\
+
+.btn-group{
+	
+	// Resetting List Styles
+	list-style: none;
+	list-style-type: none;
+	// Treats the list as any normal inline text
+	display:inline;
+	margin:0px;
+
+	li{
+
+		display:inline;
+		float:left;
+
+		.btn{
+			@include border-radius-equal(0px);
+			border-right:1px solid rgba(255, 255, 255, .3);
+		}
+
+		&:first-child{
+			.btn{
+				@include border-radius(3px, 0px, 0px, 3px);
+			}
+		}
+
+		&:last-child{
+			.btn{
+				@include border-radius(0px, 3px, 3px, 0px);
+				border-right:none;
+			}
+		}
+
+	}
+}

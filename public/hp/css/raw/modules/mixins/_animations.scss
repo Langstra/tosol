@@ -1,0 +1,46 @@
+//------------------------------------\\
+//	#Animations
+//------------------------------------\\
+
+// Transition
+@mixin transition($property: all, $times: 500ms, $function: ease-in-out){
+	-webkit-transition: $property $times $function;
+	-moz-transition: $property $times $function;
+	-ms-transition: $property $times $function;
+	-o-transition: $property $times $function;
+	transition: $property $times $function;
+}
+
+// Animation
+@mixin animate($name, $time, $loop){
+	-webkit-animation: $name $time $loop; 
+    animation: $name $time $loop;
+}
+
+// Style of animation
+// "linear", "ease", "ease-in",
+// "ease-out", "ease-in-out"
+@mixin animation-timing-function($function){
+    -webkit-animation-timing-function: $function;
+    animation-timing-function:$function;
+}
+// Animate play/stop controller
+// "paused", "running", "intial", "inherit"
+@mixin animate-play-state($state){
+	-webkit-animation-play-state: $state;
+    animation-play-state: $state;
+}
+
+// Keyframes!
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes $animation-name{
+        @content;
+    }
+    @keyframes $animation-name{
+        @content;
+    }
+}
+// 	@include keyframes("my-anim") {
+// 		0%		{ font-size: 20px; }
+// 		100%	{ font-size: 30px; }
+// 	}

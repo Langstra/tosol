@@ -2,24 +2,23 @@
 
 /**
  * Class Error
- * This controller simply shows a page that will be displayed when a controller/method is not found.
- * Simple 404 handling.
+ *
+ * Please note:
+ * Don't use the same name for class and method, as this might trigger an (unintended) __construct of the class.
+ * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
+ *
  */
 class Error extends Controller
 {
     /**
-     * Construct this object by extending the basic Controller class
+     * PAGE: index
+     * This method handles the error page that will be shown when a page is not found
      */
-    function __construct()
+    public function index()
     {
-        parent::__construct();
-    }
-
-    /**
-     * This method controls what happens / what the user sees when an error happens (404)
-     */
-    function index()
-    {
-        $this->view->render('error/index');
+        // load views
+        require APP . 'views/_templates/header.php';
+        require APP . 'views/error/index.php';
+        require APP . 'views/_templates/footer.php';
     }
 }

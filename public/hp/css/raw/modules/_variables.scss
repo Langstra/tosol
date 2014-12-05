@@ -1,0 +1,45 @@
+//------------------------------------\\
+//	#Typography
+//------------------------------------\\
+
+$global-font-family: "Source Sans Pro", Arial, sans-serif;
+$global-font-size: 14px;
+$global-line-height: 1.487;
+$global-font-color: #111;
+
+$header-font-family: "Lato", Arial, san-serif;
+$header-font-color: #111;
+$paragraph-font-color: #111;
+$paragraph-bottom-pad: 10px;
+
+//------------------------------------\\
+//	#Background Settings
+//------------------------------------\\
+
+$global-site-background-colour:#fff;
+$body-background-img: url("../img/_web/blank.gif");
+$body-background-repeat: no-repeat;
+$body-background-position: center;
+
+//------------------------------------\\
+//	#Grid Settings
+//------------------------------------\\
+
+$breakpoint-desktop:	"only screen and (max-width : 2560px)";
+$breakpoint-tablet:		"only screen and (max-width : 768px)";
+$breakpoint-phone:		"only screen and (max-width : 320px)";
+
+//------------------------------------\\
+//	#Layouts
+//------------------------------------\\
+
+$site-container-max-width:	1200px;
+$site-container-width: 		90%;
+$site-container-padding: 	0px;
+
+//------------------------------------\\
+//	#General
+//------------------------------------\\
+
+$link-color:		#1199d8;
+$link-color-hover:	#1199d8;

@@ -1,0 +1,68 @@
+//------------------------------------\\
+//	#2D Transforms
+//------------------------------------\\
+
+// Scale Only
+@mixin transform-scale($size: 1){
+	-moz-transform: scale($size);
+	-webkit-transform: scale($size);
+	-o-transform: scale($size);
+	-ms-transform: scale($size);
+	transform: scale($size);
+}
+
+// Rotate Only
+@mixin transform-rotate($deg: 90deg){
+	-moz-transform: rotate($deg);
+	-webkit-transform: rotate($deg);
+	-o-transform: rotate($deg);
+	-ms-transform: rotate($deg);
+	transform: rotate($deg);
+}
+
+// Translate Only
+@mixin transform-tranlate($x: 0px, $y: 0px){
+	-moz-transform: translateX($x) translateY($y);
+	-webkit-transform: translateX($x) translateY($y);
+	-o-transform: translateX($x) translateY($y);
+	-ms-transform: translateX($x) translateY($y);
+	transform: translateX($x) translateY($y);
+}
+
+// Skew Only
+// Who the hell even uses skew?
+@mixin transform-skew($x: 0deg, $y: 0deg){
+	-moz-transform: skewX($x) skewY($y);
+	-webkit-transform: skewX($x) skewY($y);
+	-o-transform: skewX($x) skewY($y);
+	-ms-transform: skewX($x) skewY($y);
+	transform: skewX($x) skewY($y);
+}
+
+// Scale and Rotate
+@mixin transform-scale-rotate($scale, $rotate){
+	-moz-transform: scale($scale) rotate($rotate);
+	-webkit-transform: scale($scale) rotate($rotate);
+	-o-transform: scale($scale) rotate($rotate);
+	-ms-transform: scale($scale) rotate($rotate);
+	transform: scale($scale) rotate($rotate);
+}
+
+// Scale, rotate and translate
+@mixin transform-scale-rotate-translate($scale, $rotate, $x, $y){
+	-moz-transform: scale($scale) rotate($rotate) translateX($x) translateY($y);
+	-webkit-transform: scale($scale) rotate($rotate) translateX($x) translateY($y);
+	-o-transform: scale($scale) rotate($rotate) translateX($x) translateY($y);
+	-ms-transform: scale($scale) rotate($rotate) translateX($x) translateY($y);
+	transform: scale($scale) rotate($rotate) translateX($x) translateY($y);
+}
+
+// Scale, rotate, translate and skew.
+// Again.. who the hell uses skew?!
+@mixin transform-scale-rotate-translate-skew($scale, $rotate, $x, $y, $skew-x, $skew-y){
+	-moz-transform: scale($scale) rotate($rotate) translateX($x) translateY($y) skewX($skew-x) skewY($skew-y);
+	-webkit-transform: scale($scale) rotate($rotate) translateX($x) translateY($y) skewX($skew-x) skewY($skew-y);
+	-o-transform: scale($scale) rotate($rotate) translateX($x) translateY($y) skewX($skew-x) skewY($skew-y);
+	-ms-transform: scale($scale) rotate($rotate) translateX($x) translateY($y) skewX($skew-x) skewY($skew-y);
+	transform: scale($scale) rotate($rotate) translateX($x) translateY($y) skewX($skew-x) skewY($skew-y);
+}

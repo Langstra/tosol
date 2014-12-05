@@ -1,0 +1,55 @@
+//------------------------------------\\
+//	#Colours
+//------------------------------------\\
+
+// Site Base (Site's unique color)
+$base-color:		#2f3238;
+$base-color-light:	lighten($base-color, 15%);
+
+// Red
+
+$red:			#b62c2c;
+$lightred:		lighten($red, 15%);
+$darkred:		darken($red, 15%);
+
+//Blue
+
+$blue:			#1880c8;
+$lightblue:		lighten($blue, 15%);
+$darkblue:		darken($blue, 15%);
+
+// Green Colours
+
+$green:			#84c818;
+$lightgreen:	lighten($green, 15%);
+$darkgreen:		darken($green, 15%);
+
+// Yellow Colours
+
+$yellow:		#fff000;
+$lightyellow:	lighten($yellow, 15%);
+$darkyellow:	darken($yellow, 15%);
+
+// Brown Colours
+
+$brown:			#94572e;
+$lightbrown:	lighten($brown, 15%);
+$darkbrown:		darken($brown, 15%);
+
+// Orange Colours
+
+$orange:		#ff8400;
+$lightorange:	lighten($orange, 15%);
+$darkorange:	darken($orange, 15%);
+
+// Purple Colours
+
+$purple:		#fc00ff;
+$lightpurple:	lighten($purple, 15%);
+$darkpurple:	darken($purple, 15%);
+
+// Misc Colours
+
+$black:			#000000;
+$white:			#ffffff;
+$grey:			#000000 + #ffffff;

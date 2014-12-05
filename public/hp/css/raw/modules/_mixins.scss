@@ -1,0 +1,152 @@
+
+//------------------------------------\\
+//	#Border Radius
+//------------------------------------\\
+
+// Border Radius with same corner radius
+@mixin border-radius-equal($radius: 5px){
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+// Border Radius 
+@mixin border-radius($rtr: 5px, $rtl: 5px, $rbr: 5px, $rbl: 5px){
+	-webkit-border-radius: $rtr $rtl $rbr $rbl;
+	-moz-border-radius: $rtr $rtl $rbr $rbl;
+	border-radius: $rtr $rtl $rbr $rbl;
+}
+
+//------------------------------------\\
+//	#Clearfix
+//------------------------------------\\
+
+@mixin clearfix{
+	content:"";
+	display: block;
+	width:100%;
+	height:0px;
+	clear:both;
+	visibility: hidden;
+}
+
+//------------------------------------\\
+//	#Text Shadow
+//------------------------------------\\
+
+// General RGBA Text Shadow
+@mixin text-shadow($x: 0px, $y: 0px, $blur: 0px, $r:0, $g:0, $b:0, $opacity:1){
+	text-shadow: $x $y $blur rgba($r, $g, $b, $opacity);
+}
+
+//------------------------------------\\
+//	#Misc
+//------------------------------------\\
+
+// Sometimes you just don't shit to be selected
+@mixin disable-highlight{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+// A fix for when adding padding to 
+// properties that are set at 100% width
+@mixin border-box{
+	-moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+// Reverting back to original content style
+@mixin content-box{
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+//------------------------------------\\
+//	#Drop Shadows
+//------------------------------------\\
+
+// Inset Box Shadow
+@mixin inset-box-shadow($hl: 0px, $vl: 0px, $blur: 0px, $spread: 0px, $r: 0, $g: 0, $b: 0, $opacity: 1){
+	-webkit-box-shadow: inset $hl $vl $blur $spread rgba($r, $g, $b, $opacity);
+	box-shadow: inset $hl $vl $blur $spread rgba($r, $g, $b, $opacity);
+}
+
+// Normal Box Shadow
+@mixin box-shadow($x: 1px, $y: 1px, $blur: 1px, $spread: 1px, $red: 0, $green: 0, $blue: 0, $opacity: 1){
+	-webkit-box-shadow: $x $y $blur $spread rgba($red,$green,$blue,$opacity);
+	box-shadow: $x $y $blur $spread rgba($red,$green,$blue,$opacity);
+}
+
+//------------------------------------\\
+//	#List Reset
+//------------------------------------\\
+
+@mixin list-reset{
+	list-style:none;
+	list-style-type:none;
+	padding:0px;
+	margin:0px;
+}
+
+//------------------------------------\\
+//	#Custom Font
+//------------------------------------\\
+
+@mixin fontface(
+	$font-family-name: 			'LucidaSans-Demi',
+	$font-file-location-eot: 	fonts/LucidaSans-Demi,
+	$font-file-location-woff: 	fonts/LucidaSans-Demi,
+	$font-file-location-tff: 	fonts/LucidaSans-Demi,
+	$font-file-location-svg: 	fonts/LucidaSans-Demi
+	)
+		{
+			font-family:$font-family-name;
+			src: url($font-file-location-eot) format('embedded-opentype'), 
+			url($font-file-location-woff) format('woff'),
+			url($font-file-location-tff)  format('truetype'),
+			url($font-file-location-svg) format('svg');
+			font-weight: normal;
+			font-style: normal;
+}
+
+//------------------------------------\\
+//	#Columns 
+//------------------------------------\\
+
+@mixin text-columns($count: 2, $gap: 10px){
+	-moz-column-count: $count;
+	-moz-column-gap: $gap;
+	-webkit-column-count: $count;
+	-webkit-column-gap: $gap;
+	column-count: $count;
+	column-gap: $gap;
+}
+
+//------------------------------------\\
+//	#CSS Arrow 
+//------------------------------------\\
+// Please just use CSS transform to change
+// the direction and stuff for this shit...
+
+@mixin add-arrow($width: 20px, $height: 20px, $color: #000){
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 ($width / 2) $height ($width / 2);
+	border-color: transparent transparent $color transparent;
+}
+
+
+//------------------------------------\\
+//	#Includes
+//------------------------------------\\
+
+@import "mixins/transform";
+@import "mixins/gradients";
+@import "mixins/animations";
