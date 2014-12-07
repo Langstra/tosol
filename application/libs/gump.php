@@ -1778,6 +1778,10 @@ class GUMP
             return;
         }
 
+        $input[$field] = preg_replace('/\D/', '', $input[$field]);
+
+        $input[$field] = substr($input[$field], 0, 4) . "-" . substr($input[$field], 4, 2) . "-" . substr($input[$field], 4, 2);
+
         $cdate1 = date('Y-m-d', strtotime($input[$field]));
         $cdate2 = date('Y-m-d H:i:s', strtotime($input[$field]));
 
