@@ -12,8 +12,10 @@ class User extends Controller {
     {
         $this->user = $this->loadModel("User");
 
-        if(isset($_POST['csrf'])) {
-            $this->register_return = $this->user->register($_POST);
+        if(isset($_POST['csrf']) && $this->csrf->checkToken()) {
+            $this->registration_error = $this->user->register($_POST);
+        } else {
+            $this->registration_error[] = array('field' => "csrf");
         }
         require APP . 'views/_templates/hp_header.php';
         require APP . 'views/user/register.php';

@@ -39,5 +39,3 @@ require LIBS_PATH .'LangQuery.php';
 
 // start the application
 $app = new Application();
-
-$L = new LangQuery();

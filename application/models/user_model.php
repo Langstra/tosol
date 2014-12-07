@@ -13,16 +13,14 @@ class UserModel extends Model{
 
 
     private $validation_rules = array(
-        'nickname' => 'required|max_length,12',
-        'password' => 'required|min_length,6|max_length,24',
-        'password_2' => 'required|min_length,6|max_length,24',
-        'first_name' => 'required|max_length,16',
-        'last_name' => 'required|max_length,16',
+        'nickname' => 'required|max_len,12',
+        'password' => 'required|min_len,6|max_len,24',
+        'password_2' => 'required|min_len,6|max_len,24',
+        'first_name' => 'required|max_len,16',
+        'last_name' => 'required|max_len,16',
         'email_address' => 'required|valid_email',
+        'birthday' => 'date'
     );
-
-    private $mandated_fields = array('nickname','password','password_2','first_name','last_name','email_address');
-
 
     function __construct($db)
     {
@@ -44,26 +42,21 @@ class UserModel extends Model{
      */
     public function register($user_info)
     {
-        $valid = true;
-        $empty_fields = array();
-        foreach($this->mandated_fields as $val) {
-            if(!in_array($val, array_keys($user_info)) || empty($user_info[$val])) {
-                $valid = false;
-                $empty_fields[] = $val;
-            }
-        }
-        $used_fields = array();
-        if($valid) {
+        $this->gump->sanitize($user_info);
+        $validated = $this->gump->validate($user_info, $this->validation_rules);
+        if($validated === true) {
             if($this->nickname_used($user_info['nickname'])) {
-                $used_fields[] = 'nickname';
+                $validated[] = 'nickname';
             }
-            if($this->email_used($used_fields['email_address'])) {
-                $used_fields[] = 'email_address';
+            if($this->email_used($user_info['email_address'])) {
+                $validated[] = 'email_address';
             }
-        } else {
-            return $empty_fields;
+            if($user_info['password'] == $user_info['password_2']) {
+                $validated[] = 'password_2';
+            }
         }
-        if($valid) {
+
+        if($validated === true) {
             $user_info['password'] = create_hash($user_info['password']);
             array_splice($user_info, array_search('password_2', array_keys($user_info)), 1);
             array_splice($user_info, array_search('csrf', array_keys($user_info)), 1);
@@ -81,8 +74,9 @@ class UserModel extends Model{
             $sql = substr($sql, 0, -1);
             $sql .= ")";
             $query = $this->db->prepare($sql);
-            $query->execute($params);
-            return "Succes";
+            return $query->execute($params);
+        } else {
+            return $validated;
         }
     }
 
