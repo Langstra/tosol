@@ -14,6 +14,9 @@ class User extends Controller {
 
         if(isset($_POST['csrf']) && $this->csrf->checkToken()) {
             $this->registration_error = $this->user->register($_POST);
+            if($this->registration_error === true) {
+                unset($this->registration_error);
+            }
         } else {
             $this->registration_error[] = array('field' => "csrf");
         }

@@ -44,15 +44,21 @@ class UserModel extends Model{
     {
         $this->gump->sanitize($user_info);
         $validated = $this->gump->validate($user_info, $this->validation_rules);
+
         if($validated === true) {
+            $user_info['nickname'] = strtolower($user_info['nickname']);
+            $errors = array();
             if($this->nickname_used($user_info['nickname'])) {
-                $validated[] = 'nickname';
+                $errors[] = array('field' => 'nickname');
             }
             if($this->email_used($user_info['email_address'])) {
-                $validated[] = 'email_address';
+                $errors[] = array('field' => 'email_address');
             }
-            if($user_info['password'] == $user_info['password_2']) {
-                $validated[] = 'password_2';
+            if($user_info['password'] != $user_info['password_2']) {
+                $errors[] = array('field' => 'password_2');
+            }
+            if(sizeof($errors) != 0) {
+                $validated = $errors;
             }
         }
 
@@ -86,7 +92,8 @@ class UserModel extends Model{
         $query = $this->db->prepare($sql);
         $parameters = array(':nickname' => $nickname);
         $query->execute($parameters);
-        return $query->users != 0;
+        $result = $query->fetch(PDO::FETCH_OBJ);
+        return $result->users != 0;
     }
 
     private function email_used($email)
@@ -95,6 +102,7 @@ class UserModel extends Model{
         $query = $this->db->prepare($sql);
         $parameters = array(':email' => $email);
         $query->execute($parameters);
-        return $query->users != 0;
+        $result = $query->fetch(PDO::FETCH_OBJ);
+        return $result->users != 0;
     }
 }
