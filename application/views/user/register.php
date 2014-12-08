@@ -6,7 +6,7 @@
             if (isset($this->registration_error) && isset($_POST['csrf'])) {
                 foreach ($this->registration_error as $key => $mes) {
                     ?>
-                    <div class="notify">
+                    <div class="notify fail">
                         <i class="fa fa-check"></i>
                         <?php
                         $this->L->prnt("reg_" . $mes['field'] . "_" . $mes['rule']);
@@ -17,7 +17,7 @@
                 }
             } elseif (isset($_POST['csrf'])) {
                 ?>
-                <div class="notify">
+                <div class="notify success">
                     <i class="fa fa-check"></i>
                     <?php
                     $this->L->prnt("reg_succes");

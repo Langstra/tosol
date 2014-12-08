@@ -1,0 +1,11 @@
+.notify {
+    margin: 0 0 5px 0;
+}
+
+.fail {
+    background: none repeat scroll 0% 0% #ff0000;
+}
+
+.success {
+    background: none repeat scroll 0% 0% #006600;
+}
