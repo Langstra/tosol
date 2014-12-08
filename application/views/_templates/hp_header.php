@@ -31,7 +31,7 @@
         <!-- Site options -->
         <ul class="ft-right">
             <li><a href="#" class="btn"><?php $this->L->prnt("head_language"); ?> <i class="fa fa-caret-down"></i></a></li>
-            <li><a href="#" class="btn red"><?php $this->L->prnt("head_login"); ?> <i class="fa fa-sign-in"></i></a></li>
+            <li><a href="<?php echo URL; ?>user/login" class="btn red"><?php $this->L->prnt("head_login"); ?> <i class="fa fa-sign-in"></i></a></li>
         </ul>
     </div>
 </header>
@@ -39,7 +39,7 @@
 <!-- Main Navigation -->
 <nav id="main-nav">
     <div class="site-width">
-        <a href="index.html" id="site-logo"><img src="<?php echo HP_ASSETS_PATH; ?>logo-1.png" alt="The Oxford School of Language"></a>
+        <a href="<?php echo URL; ?>home" id="site-logo"><img src="<?php echo HP_ASSETS_PATH; ?>logo-1.png" alt="The Oxford School of Language"></a>
         <ul>
             <li><a href="#"><?php $this->L->prnt("menu_home"); ?></a></li>
             <li><a href="#"><?php $this->L->prnt("menu_course_info"); ?></a></li>
