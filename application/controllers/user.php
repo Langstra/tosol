@@ -18,7 +18,7 @@ class User extends Controller {
                 unset($this->registration_error);
             }
         } else {
-            $this->registration_error[] = array('field' => "csrf");
+            $this->registration_error[] = array('field' => "csrf", 'rule' => 'validate_token');
         }
         require APP . 'views/_templates/hp_header.php';
         require APP . 'views/user/register.php';

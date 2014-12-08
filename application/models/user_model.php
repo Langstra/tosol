@@ -15,7 +15,6 @@ class UserModel extends Model{
     private $validation_rules = array(
         'nickname' => 'required|max_len,12',
         'password' => 'required|min_len,6|max_len,24',
-        'password_2' => 'required|min_len,6|max_len,24',
         'first_name' => 'required|max_len,16',
         'last_name' => 'required|max_len,16',
         'email_address' => 'required|valid_email',
@@ -49,13 +48,13 @@ class UserModel extends Model{
             $user_info['nickname'] = strtolower($user_info['nickname']);
             $errors = array();
             if($this->nickname_used($user_info['nickname'])) {
-                $errors[] = array('field' => 'nickname');
+                $errors[] = array('field' => 'nickname', 'rule' => 'validate_unique');
             }
             if($this->email_used($user_info['email_address'])) {
-                $errors[] = array('field' => 'email_address');
+                $errors[] = array('field' => 'email_address', 'rule' => 'validate_unique');
             }
             if($user_info['password'] != $user_info['password_2']) {
-                $errors[] = array('field' => 'password_2');
+                $errors[] = array('field' => 'password_2', 'rule' => 'validate_match');
             }
             if(sizeof($errors) != 0) {
                 $validated = $errors;
