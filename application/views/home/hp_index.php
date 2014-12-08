@@ -44,7 +44,7 @@
                 </select>
             </li>
             <li>
-                <a href="user/register" class="btn-j p"><?php $this->L->prnt("getstart_start"); ?></a>
+                <a href="<?php echo URL; ?>user/register" class="btn-j p"><?php $this->L->prnt("getstart_start"); ?></a>
             </li>
         </ul>
     </div>

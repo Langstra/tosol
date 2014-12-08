@@ -20,9 +20,15 @@ class User extends Controller {
         } else {
             $this->registration_error[] = array('field' => "csrf", 'rule' => 'validate_token');
         }
-        require APP . 'views/_templates/hp_header.php';
-        require APP . 'views/user/register.php';
-        require APP . 'views/_templates/hp_footer.php';
+        require VIEWS_PATH . '_templates/hp_header.php';
+        require VIEWS_PATH . 'user/register.php';
+        require VIEWS_PATH . '_templates/hp_footer.php';
+    }
+
+    public function login() {
+        require VIEWS_PATH . '_templates/hp_header.php';
+        require VIEWS_PATH . 'user/login.php';
+        require VIEWS_PATH . '_templates/hp_footer.php';
     }
 
 } 
