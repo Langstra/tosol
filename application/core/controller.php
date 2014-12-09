@@ -22,6 +22,7 @@ class Controller
     {
         $this->openDatabaseConnection();
         $this->html = $this->loadModel("Html");
+        $this->auth = $this->loadModel("Auth");
         $this->loadLib('csrf');
         $this->csrf = new \Csrf\CsrfToken(300);
         $this->L = new LangQuery();

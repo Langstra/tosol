@@ -13,14 +13,10 @@ class User extends Controller {
     public $registration_error;
     public $login_error;
 
-    function __construct()
-    {
-        $this->user = $this->loadModel("User");
-    }
 
     public function register()
     {
-
+        $this->user = $this->loadModel("User");
 
         if(isset($_POST['csrf']) && $this->csrf->checkToken()) {
             $this->registration_error = $this->user->register($_POST);
@@ -36,10 +32,21 @@ class User extends Controller {
     }
 
     public function login() {
+
         if(isset($_POST['csrf']) && $this->csrf->checkToken()) {
-            $this->login_error = $this->user->login($_POST);
-            if($this->login_error === true) {
-                unset($this->login_error);
+
+            if(!isset($_POST['username']) || empty($_POST['username'])) {
+                $this->login_error[] = array('field' => "username", 'rule' => 'validate_required');
+            } elseif (!isset($_POST['password']) || empty($_POST['password'])) {
+                $this->login_error[] = array('field' => "password", 'rule' => 'validate_required');
+            } else {
+
+                $this->login_error = $this->auth->login($_POST);
+                if ($this->login_error === true) {
+                    unset($this->login_error);
+                } else {
+                    $this->login_error[] = array('field' => "password", 'rule' => 'validate_correct');
+                }
             }
         } else {
             $this->login_error[] = array('field' => "csrf", 'rule' => 'validate_token');

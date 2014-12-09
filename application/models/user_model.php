@@ -7,8 +7,6 @@
  */
 
 
-require LIBS_PATH . "passwordhash.php";
-
 class UserModel extends Model{
 
 
@@ -85,6 +83,10 @@ class UserModel extends Model{
         }
     }
 
+    /**
+     * @param $nickname - Nickname to be checked
+     * @return bool - true if nickname is already in the database
+     */
     private function nickname_used($nickname)
     {
         $sql = "SELECT COUNT(*) as users FROM user WHERE nickname = :nickname";
@@ -95,6 +97,11 @@ class UserModel extends Model{
         return $result->users != 0;
     }
 
+
+    /**
+     * @param $email - Email address to be checked
+     * @return bool - true if email address is already in the database
+     */
     private function email_used($email)
     {
         $sql = "SELECT COUNT(*) as users FROM user WHERE email_address = :email";
