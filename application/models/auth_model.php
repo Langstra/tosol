@@ -6,11 +6,13 @@
  * Time: 0:08
  */
 
-class Auth {
+require LIBS_PATH . "passwordhash.php";
 
-    function __construct()
+class Auth extends Model{
+
+    function __construct($db)
     {
-        session_start();
+        parent::__construct($db);
     }
 
     public function logged_in()
@@ -21,5 +23,14 @@ class Auth {
     public function get_username()
     {
         return $this->logged_in() ? $_SESSION['username'] : False;
+    }
+
+    /**
+     * @param $username - Username
+     * @param $password - Password of the user
+     */
+    public function login($username, $password)
+    {
+
     }
 }
