@@ -56,7 +56,7 @@ class Controller
     {
         $path = MODELS_PATH . strtolower($name) . '_model.php';
         if (file_exists($path)) {
-            require $path;
+            require_once $path;
             // The "Model" has a capital letter as this is the second part of the models class name,
             // all models have names like "LoginModel"
             $modelName = $name . 'Model';
@@ -75,7 +75,7 @@ class Controller
     {
         $path = LIBS_PATH . strtolower($name) . '.php';
         if (file_exists($path)) {
-            require $path;
+            require_once $path;
 
             return true;
         } else {
