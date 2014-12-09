@@ -31,7 +31,7 @@
         <!-- Site options -->
         <ul class="ft-right">
             <li><a href="#" class="btn"><?php $this->L->prnt("head_language"); ?> <i class="fa fa-caret-down"></i></a></li>
-            <li><a href="<?php echo URL; ?>user/login" class="btn red"><?php $this->L->prnt("head_login"); ?> <i class="fa fa-sign-in"></i></a></li>
+            <li><a href="<?php echo URL; echo $this->auth->logged_in() ? "user/account" : "user/login"; ?>" class="btn red"><?php echo $this->auth->logged_in() ? $this->L->prnt(">head_welcome",$this->auth->get_username()) : $this->L->prnt(">head_login"); ?> <i class="fa fa-sign-in"></i></a></li>
         </ul>
     </div>
 </header>

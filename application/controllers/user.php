@@ -44,6 +44,7 @@ class User extends Controller {
                 $this->login_error = $this->auth->login($_POST);
                 if ($this->login_error === true) {
                     unset($this->login_error);
+                    unset($_POST);
                 } else {
                     $this->login_error[] = array('field' => "password", 'rule' => 'validate_correct');
                 }
